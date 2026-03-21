@@ -1,0 +1,14 @@
+# Environment
+venv/
+env/
+.env
+__pycache__/
+*.pyc
+*.pyo
+
+# Machine Learning Models (over 100MB, excluded to prevent GitHub push errors)
+models/
+*.pkl
+
+# Logs
+*.log

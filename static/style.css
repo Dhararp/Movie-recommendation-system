@@ -1,0 +1,220 @@
+:root {
+    --bg-dark: #0f172a;
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-primary: #0ea5e9;
+    --accent-hover: #0284c7;
+    --gradient-start: #38bdf8;
+    --gradient-end: #818cf8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    /* Subtle radial gradient background */
+    background-image: radial-gradient(circle at top right, #1e1b4b 0%, var(--bg-dark) 50%);
+    color: var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* Typography */
+.hero {
+    text-align: center;
+    margin-bottom: 1rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.gradient-text {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+    text-align: center;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Form Styles */
+.search-section {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.input-group {
+    width: 100%;
+    max-width: 500px;
+}
+
+.movie-select {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-family: inherit;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    background-color: rgba(15, 23, 42, 0.8);
+    border: 1px solid var(--accent-primary);
+    border-radius: 8px;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.movie-select:focus {
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.3);
+}
+
+.movie-select option {
+    background-color: var(--bg-dark);
+}
+
+.btn-primary {
+    background: linear-gradient(to right, var(--accent-primary), var(--accent-hover));
+    color: white;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Recommendations Grid */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.movie-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 120px;
+    padding: 1.5rem;
+    cursor: default;
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 165, 233, 0.2);
+    border-color: rgba(14, 165, 233, 0.4);
+}
+
+.card-content h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+/* Graph Container */
+.graph-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* To ensure matplotlib graphs look premium on dark mode without changing matplotlib python code */
+.responsive-graph {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: #f8fafc; /* Matplotlib background is white, so a strict white border ensures it looks intentional */
+    padding: 8px;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    padding-top: 3rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive constraints */
+@media (max-width: 768px) {
+    .gradient-text {
+        font-size: 2.5rem;
+    }
+    body {
+        padding: 1rem;
+    }
+}
